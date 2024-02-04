@@ -29,3 +29,5 @@ require __DIR__.'/publicas.php';
 require __DIR__.'/cores.php';
 require __DIR__.'/especies.php';
 require __DIR__.'/situacoes.php';
+require __DIR__.'/tamanhos.php';
+require __DIR__.'/racas.php';
