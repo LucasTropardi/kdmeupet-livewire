@@ -30,16 +30,11 @@ new class extends Component
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard', 'lista.usuarios', 'usuario.cadastrar', 'usuario.alterar', 'lista.cores', 'cor.alterar', 'cor.cadastrar', 'lista.especies', 'especie.cadastrar', 'especie.alterar')" wire:navigate>
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('lista.usuarios')" :active="request()->routeIs('lista.usuarios')" wire:navigate>
-                        {{ __('Usuários') }}
-                    </x-nav-link>
-                </div>
             </div>
 
             <!-- Settings Dropdown -->

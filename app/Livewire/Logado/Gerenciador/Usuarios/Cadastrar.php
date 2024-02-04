@@ -35,7 +35,6 @@ class Cadastrar extends Component
             'sobrenome' => ['required', 'string', 'max:191'],
             'telefone' => ['required', 'string', 'max:15'],
             'endereco' => ['required', 'string', 'max:191'],
-            // 'nivel' => ['required'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:191', 'unique:'.User::class],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
         ]);

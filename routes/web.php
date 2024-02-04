@@ -26,3 +26,5 @@ Route::view('profile', 'profile')
 require __DIR__.'/auth.php';
 require __DIR__.'/usuarios.php';
 require __DIR__.'/publicas.php';
+require __DIR__.'/cores.php';
+require __DIR__.'/especies.php';
