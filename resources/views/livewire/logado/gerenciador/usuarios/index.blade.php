@@ -29,9 +29,9 @@
                             <tbody>
                                 <tbody>
                                     @foreach ($usuarios as $usuario)
-                                        <tr class="odd:bg-white dark:odd:bg-gray-800 even:bg-gray-100 dark:even:bg-gray-700 hover:bg-yellow-50 dark:hover:bg-gray-600 hober:border-yellow-100 border-b text-base font-medium">
+                                        <tr class="odd:bg-white dark:odd:bg-gray-800 even:bg-gray-100 dark:even:bg-gray-700 hover:bg-yellow-50 dark:hover:bg-gray-600 hover:border-yellow-100 border-b dark:border-none text-base font-medium">
                                             <td class="text-center sm:table-cell hidden">
-                                                @if ($usuario->level === 'admin')
+                                                @if ($usuario->nivel === 'admin')
                                                     <div title="Gerenciador" class="grid justify-items-center p-1">
                                                         <div>
                                                             <img src="{{ asset('images/admin-index.png') }}" alt="Logo" width="35">
@@ -49,13 +49,10 @@
                                             <td class="sm:table-cell hidden">{{ $usuario->telefone }}</td>
                                             <td class="sm:table-cell hidden">{{ $usuario->email }}</td>
                                             <td class="text-center p-4 space-x-2 flex flex-col items-center justify-center sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0">
-                                                <x-external-button route="" title="Editar perfil" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center ml-1 sm:ml-0 me-0.5 mb-0 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800" >
+                                                <x-external-button route="{{ route('usuario.alterar', $usuario->id) }}" title="Editar perfil" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center ml-1 sm:ml-0 me-0.5 mb-0 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800" >
                                                     <i class="fa-solid fa-pencil ml-0.5"></i>
                                                 </x-external-button>
-                                                <x-external-button route="" title="Excluir usuário" class="excluir-usuario text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 sm:px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900" x-on:click.prevent="
-                                                open = true;
-                                                $wire.setUserId({{ $usuario->id }});
-                                                ">
+                                                <x-external-button route="" title="Excluir usuário" class="excluir-usuario text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 sm:px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900" x-on:click.prevent="$wire.setUserId({{ $usuario->id }}); $wire.open = true;">
                                                     <i class="fa-regular fa-trash-can ml-1 sm:ml-0" title="Excluir"></i>
                                                 </x-external-button>
                                             </td>
@@ -71,8 +68,7 @@
                 </div>
             </div>
         </div>
-        <!-- Modal Excluir Usuario -->
-        {{-- @include('livewire.partials.modals.modal-excluir-usuario') --}}
+        @include('livewire.partials.modals.modal-excluir-usuario')
+        @include('livewire.partials.toast.toast')
     </div>
-    {{-- @include('livewire.partials.toast.toast') --}}
 </div>

@@ -30,12 +30,15 @@ class Index extends Component
         $this->userId = $userId;
     }
 
+
     public function excluirUsuario()
     {
+        // Verifica se existe um ID de usuário definido
         if ($this->userId) {
-            $user = User::find($this->userId);
+            $user = User::findOrFail($this->userId);
 
             if ($user) {
+                // Exclui o usuário
                 $result = $this->deleteRegistro($user);
 
                 if ($result['success']) {
