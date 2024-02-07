@@ -22,7 +22,7 @@
                             <div class="col-span-12 md:col-span-6">
                                 <x-input-label for="especie_id" :value="__('Espécie')" class="mb-1 " />
                                 <select wire:model="especie_id" id="especie_id" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-900 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                                    <option value="admin">--- Selecione ---</option>
+                                    <option value="">--- Selecione ---</option>
                                     @foreach ($especies as $especie)
                                         <option value="{{ $especie->id }}">{{ $especie->esNome }}</option>
                                     @endforeach
@@ -30,7 +30,7 @@
                             </div>
                         </div>
                         <div class="flex items-center justify-end mt-6">
-                            <x-primary-button class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 mt-4">
+                            <x-primary-button class="text-white dark:text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 mt-4">
                                 {{ __('Cadastrar') }}
                             </x-primary-button>
                         </div>
