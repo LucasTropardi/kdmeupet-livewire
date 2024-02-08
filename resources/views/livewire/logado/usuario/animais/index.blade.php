@@ -35,7 +35,7 @@
                                             <td class="p-4">{{ $animal->situacao->situacao }}</td>
                                             <td class="sm:table-cell hidden">{{ $animal->especie->esNome }}</td>
                                             <td class="sm:table-cell hidden">{{ $animal->raca->racaNome }}</td>
-                                            <td class="sm:table-cell hidden">{{ $animal->anData }}</td>
+                                            <td class="sm:table-cell hidden">{{ \Carbon\Carbon::parse($animal->anData)->format('d/m/Y') }}</td>
                                             <td class="text-center p-4 space-x-2 flex flex-col items-center justify-center sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0">
                                                 <x-external-button route="{{ route('animal.ver', $animal->id) }}" title="Visualizar" class="text-green-600 hover:text-white border border-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center ml-2 sm:ml-0 me-0.5 mb-0 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-500 dark:focus:ring-green-700" >
                                                     <i class="fa-solid fa-eye ml-0.5"></i>
