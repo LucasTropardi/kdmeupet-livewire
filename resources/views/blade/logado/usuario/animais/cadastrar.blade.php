@@ -109,13 +109,16 @@
                 </div>
             </div>
         </div>
-        <script
-        src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-        crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
         crossorigin=""></script>
         <script src="{{ asset('js/mapa-cadastro.js') }}"></script>
+        <script>
+            flatpickr("#anData", {
+                dateFormat: "d/m/Y",
+                locale: "pt",
+            });
+        </script>
     </div>
 </x-app-layout>

@@ -4,8 +4,6 @@ use App\Http\Controllers\AnimalController;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Logado\Usuario\Animais\Index as AnimaisIndex;
 use App\Livewire\Logado\Usuario\Animais\Ver as AnimaisVer;
-use App\Livewire\Logado\Usuario\Animais\Cadastrar as AnimaisCadastrar;
-use App\Livewire\Logado\Usuario\Animais\Alterar as AnimaisAlterar;
 use App\Models\Raca;
 use Illuminate\Http\Request;
 

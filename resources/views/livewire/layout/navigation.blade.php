@@ -17,6 +17,7 @@ new class extends Component
 }; ?>
 
 <nav x-data="{ open: false }" class="fixed top-0 w-full bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 z-50">
+
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -36,8 +37,14 @@ new class extends Component
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('lista.animais')" :active="request()->routeIs('lista.animais', 'animal.cadastrar','animal.alterar')" wire:navigate>
+                    <x-nav-link :href="route('lista.animais')" :active="request()->routeIs('lista.animais', 'animal.editar','animal.criar', 'animal.ver')" wire:navigate>
                         {{ __('Animais') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('lista.parceiros')" :active="request()->routeIs('lista.parceiros', 'parceiro.editar','parceiro.criar', 'parceiro.ver')" wire:navigate>
+                        {{ __('Parceiro') }}
                     </x-nav-link>
                 </div>
 
@@ -88,8 +95,16 @@ new class extends Component
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard', 'lista.usuarios', 'usuario.cadastrar', 'usuario.alterar', 'lista.cores', 'cor.alterar', 'cor.cadastrar', 'lista.especies', 'especie.cadastrar', 'especie.alterar')" wire:navigate>
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('lista.animais')" :active="request()->routeIs('lista.animais', 'animal.editar','animal.criar', 'animal.ver')" wire:navigate>
+                {{ __('Animais') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('lista.parceiros')" :active="request()->routeIs('lista.parceiros', 'parceiro.editar','parceiro.criar', 'parceiro.ver')" wire:navigate>
+                {{ __('Parceiro') }}
             </x-responsive-nav-link>
         </div>
 

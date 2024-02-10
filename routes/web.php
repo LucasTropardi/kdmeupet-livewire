@@ -32,3 +32,4 @@ require __DIR__.'/situacoes.php';
 require __DIR__.'/tamanhos.php';
 require __DIR__.'/racas.php';
 require __DIR__.'/animais.php';
+require __DIR__.'/parceiros.php';

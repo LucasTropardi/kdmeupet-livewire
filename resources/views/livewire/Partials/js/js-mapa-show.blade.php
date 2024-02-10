@@ -2,6 +2,7 @@
 <script>
     var animalLatitude = {!! json_encode($animal->latitude ?? null) !!};
     var animalLongitude = {!! json_encode($animal->longitude ?? null) !!};
+    var iconUrl = "{{ asset('images/local1.png') }}"; // Adicione a URL do ícone aqui
 
     document.addEventListener('DOMContentLoaded', function () {
         var southWest = L.latLng(-21.465, -50.15);
@@ -17,11 +18,18 @@
         mapShow.fitBounds(bounds); // Ajusta o mapa aos limites definidos
 
         if (animalLatitude !== null && animalLongitude !== null) {
-            var markerShow = L.marker([animalLatitude, animalLongitude]).addTo(mapShow);
+            var customIcon = L.icon({
+                iconUrl: iconUrl, // variável global
+                iconSize: [65, 70], // tamanho do ícone
+                iconAnchor: [22, 94], // ponto do ícone que corresponderá à localização do marcador no mapa
+                popupAnchor: [-3, -76] // ponto a partir do qual o popup deve abrir em relação ao `iconAnchor`
+            });
+
+            var markerShow = L.marker([animalLatitude, animalLongitude], {icon: customIcon}).addTo(mapShow);
 
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(mapShow);
         } else {
             var mapContainer = document.getElementById('mapa');
