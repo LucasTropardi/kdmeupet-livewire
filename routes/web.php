@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnimalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 // Route::view('/', 'welcome');
 
-Route::view('dashboard', 'dashboard')
+// Route::view('dashboard', 'dashboard')
+//     ->middleware(['auth', 'verified'])
+//     ->name('dashboard');
+
+Route::get('dashboard', [AnimalController::class, 'dashboard'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
@@ -34,3 +39,4 @@ require __DIR__.'/racas.php';
 require __DIR__.'/animais.php';
 require __DIR__.'/parceiros.php';
 require __DIR__.'/adocoes.php';
+require __DIR__.'/logadas.php';

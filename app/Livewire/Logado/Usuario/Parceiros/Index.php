@@ -32,6 +32,9 @@ class Index extends Component
                 ->where('parFinalizado', 0)
                 ->orderBy('id', 'desc')
                 ->paginate(10),
+            'countParcerias' => Parceria::where('user_id', $this->user_id)
+                ->where('parFinalizado', 0)
+                ->count(),
         ]);
     }
 

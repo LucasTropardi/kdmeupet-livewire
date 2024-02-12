@@ -11,8 +11,32 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')" wire:navigate>
-                        {{ __('Home') }}
+                    <x-nav-link :href="route('publico.achados')" :active="request()->routeIs('publico.achados')" wire:navigate>
+                        {{ __('Achados') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('publico.perdidos')" :active="request()->routeIs('publico.perdidos')" wire:navigate>
+                        {{ __('Perdidos') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('publico.adotar')" :active="request()->routeIs('publico.adotar')" wire:navigate>
+                        {{ __('Adotar') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('publico.parcerias')" :active="request()->routeIs('publico.parcerias')" wire:navigate>
+                        {{ __('Parcerias') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('publico.localizacoes')" :active="request()->routeIs('publico.localizacoes')" wire:navigate>
+                        {{ __('Localizações') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -54,8 +78,20 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('dashboard')" wire:navigate>
-                {{ __('Home') }}
+            <x-responsive-nav-link :href="route('publico.achados')" :active="request()->routeIs('publico.achados')" wire:navigate>
+                {{ __('Achados') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('publico.perdidos')" :active="request()->routeIs('publico.perdidos')" wire:navigate>
+                {{ __('Perdidos') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('publico.adotar')" :active="request()->routeIs('publico.adotar')" wire:navigate>
+                {{ __('Adotar') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('publico.parcerias')" :active="request()->routeIs('publico.parcerias')" wire:navigate>
+                {{ __('Parcerias') }}
             </x-responsive-nav-link>
         </div>
 

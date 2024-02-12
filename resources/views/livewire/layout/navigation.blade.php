@@ -31,8 +31,32 @@ new class extends Component
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard', 'lista.usuarios', 'usuario.cadastrar', 'usuario.alterar', 'lista.cores', 'cor.alterar', 'cor.cadastrar', 'lista.especies', 'especie.cadastrar', 'especie.alterar')" wire:navigate>
-                        {{ __('Dashboard') }}
+                    <x-nav-link :href="route('logado.achados')" :active="request()->routeIs('logado.achados')" wire:navigate>
+                        {{ __('Achados') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('logado.perdidos')" :active="request()->routeIs('logado.perdidos')" wire:navigate>
+                        {{ __('Perdidos') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('logado.adotar')" :active="request()->routeIs('logado.adotar')" wire:navigate>
+                        {{ __('Adotar') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('logado.parcerias')" :active="request()->routeIs('logado.parcerias')" wire:navigate>
+                        {{ __('Parcerias') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('logado.localizacoes')" :active="request()->routeIs('logado.localizacoes')" wire:navigate>
+                        {{ __('Localizações') }}
                     </x-nav-link>
                 </div>
 
@@ -101,8 +125,24 @@ new class extends Component
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard', 'lista.usuarios', 'usuario.cadastrar', 'usuario.alterar', 'lista.cores', 'cor.alterar', 'cor.cadastrar', 'lista.especies', 'especie.cadastrar', 'especie.alterar')" wire:navigate>
-                {{ __('Dashboard') }}
+            <x-responsive-nav-link :href="route('logado.achados')" :active="request()->routeIs('logado.achados')" wire:navigate>
+                {{ __('Achados') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('logado.perdidos')" :active="request()->routeIs('logado.perdidos')" wire:navigate>
+                {{ __('Perdidos') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('logado.adotar')" :active="request()->routeIs('logado.adotar')" wire:navigate>
+                {{ __('Adotar') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('logado.parcerias')" :active="request()->routeIs('logado.parcerias')" wire:navigate>
+                {{ __('Parcerias') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('logado.localizacoes')" :active="request()->routeIs('logado.localizacoes')" wire:navigate>
+                {{ __('Localizações') }}
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('lista.animais')" :active="request()->routeIs('lista.animais', 'animal.editar','animal.criar', 'animal.ver')" wire:navigate>
@@ -110,12 +150,13 @@ new class extends Component
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('lista.parceiros')" :active="request()->routeIs('lista.parceiros', 'parceiro.alterar','parceiro.cadastrar', 'parceiro.ver')" wire:navigate>
-                {{ __('Parceiro') }}
+                {{ __('Parceiros') }}
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('lista.adocoes')" :active="request()->routeIs('lista.adocoes', 'adocao.editar','adocao.criar', 'adocao.ver', 'lista.interesses', 'interesse-cadastrar')" wire:navigate>
                 {{ __('Adoções') }}
             </x-responsive-nav-link>
+
         </div>
 
         <!-- Responsive Settings Options -->

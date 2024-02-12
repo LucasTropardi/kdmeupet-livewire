@@ -23,6 +23,9 @@ class Index extends Component
                 ->where('user_id', Auth::user()->id)
                 ->orderBy('anData', 'asc')
                 ->paginate(10),
+            'countAnimais' => Animal::where('anFinalizado', '0')
+                ->where('user_id', Auth::user()->id)
+                ->count(),
         ]);
     }
 

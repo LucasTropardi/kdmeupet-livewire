@@ -41,9 +41,10 @@
 
             @include('livewire.Partials.bannertop')
             <!-- Page Content -->
-            <main>
+            <main class="mb-8">
                 {{ $slot }}
             </main>
+            @include('livewire.Partials.footer')
         </div>
 
         <!-- Flowbite -->

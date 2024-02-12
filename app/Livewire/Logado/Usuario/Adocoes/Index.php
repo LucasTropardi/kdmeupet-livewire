@@ -23,6 +23,9 @@ class Index extends Component
                 ->where('user_id', Auth::user()->id)
                 ->orderBy('id', 'desc')
                 ->paginate(10),
+            'countAdocoes' => Adocao::where('adFinalizado', 0)
+                ->where('user_id', Auth::user()->id)
+                ->count(),
         ]);
     }
 

@@ -34,7 +34,7 @@ class Alterar extends Component
         $this->parceria = Parceria::findOrFail($id);
         $this->user_id = Auth::user()->id;
         $this->parAprovado = $this->parceria->parAprovado;
-        $this->parFinalizado = $this->parceria->parFinalizado;
+        $this->parFinalizado = 0;
         $this->parNome = $this->parceria->parNome;
         $this->parDataCadastro = $this->parceria->parDataCadastro;
         $this->parEmail = $this->parceria->parEmail;

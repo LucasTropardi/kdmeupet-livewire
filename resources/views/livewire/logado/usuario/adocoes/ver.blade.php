@@ -4,7 +4,7 @@
     </h2>
 </x-slot>
 
-<div x-data="{ open: false }" class="py-12">
+<div x-data="{ open: false }" class="py-8">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 dark:bg-gray-900">
         <div class="bg-gray-300 shadow sm:rounded-lg p-1.5 dark:bg-gray-600 dark:text-gray-100">
             <div class="bg-blue-300 shadow sm:rounded-lg p-1.5 dark:bg-gray-500 dark:text-gray-100">
@@ -66,7 +66,7 @@
                             </div>
                             @if ($countMensagem > 0)
 
-                                <h2 class="font-semibold text-xl text-gray-700 dark:text-gray-300 leading-tight text-center mb-3">
+                                <h2 class="font-semibold text-xl text-gray-700 dark:text-gray-300 leading-tight text-center mt-4 mb-3">
                                     {{ __('Comentários') }}
                                 </h2>
                                 @foreach ($mensagens as $mensagem)

@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Adocao;
 use Illuminate\Http\Request;
 use App\Models\Animal;
 use App\Models\Cor;
 use App\Models\Especie;
 use App\Models\Mensagem;
+use App\Models\Parceria;
 use App\Models\Raca;
 use App\Models\Situacao;
 use App\Models\Tamanho;
@@ -216,4 +218,39 @@ class AnimalController extends Controller
 
         return response()->json(['tamanhos' => $tamanhos]);
     }
+
+    public function dashboard()
+    {
+        return view('dashboard', [
+            'achados' => Animal::where('situacao_id', '3')
+                                ->where('anFinalizado', '0')
+                                ->orderBy('id', 'desc')
+                                ->take(5)
+                                ->get(),
+            'countAchados' => Animal::where('situacao_id', '3')
+                                    ->where('anFinalizado', '0')
+                                    ->count(),
+            'perdidos' => Animal::where('situacao_id', '4')
+                                    ->where('anFinalizado', '0')
+                                    ->orderBy('id', 'desc')
+                                    ->take(5)
+                                    ->get(),
+            'countPerdidos' => Animal::where('situacao_id', '4')
+                                    ->where('anFinalizado', '0')
+                                    ->count(),
+            'adocoes' => Adocao::where('adFinalizado', '0')
+                                    ->orderBy('id', 'desc')
+                                    ->take(5)
+                                    ->get(),
+            'countAdocoes' => Adocao::where('adFinalizado', '0')
+                                    ->count(),
+            'parcerias' => Parceria::where('parFinalizado', '0')
+                                    ->orderBy('id', 'desc')
+                                    ->take(2)
+                                    ->get(),
+            'countParcerias' => Parceria::where('parFinalizado', '0')
+                                    ->count(),
+        ]);
+    }
+
 }
