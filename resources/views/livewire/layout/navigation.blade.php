@@ -43,8 +43,14 @@ new class extends Component
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('lista.parceiros')" :active="request()->routeIs('lista.parceiros', 'parceiro.editar','parceiro.criar', 'parceiro.ver')" wire:navigate>
-                        {{ __('Parceiro') }}
+                    <x-nav-link :href="route('lista.parceiros')" :active="request()->routeIs('lista.parceiros', 'parceiro.alterar','parceiro.cadastrar', 'parceiro.ver')" wire:navigate>
+                        {{ __('Parceiros') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('lista.adocoes')" :active="request()->routeIs('lista.adocoes', 'adocao.editar','adocao.criar', 'adocao.ver', 'lista.interesses', 'interesse-cadastrar')" wire:navigate>
+                        {{ __('Adoções') }}
                     </x-nav-link>
                 </div>
 
@@ -103,8 +109,12 @@ new class extends Component
                 {{ __('Animais') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('lista.parceiros')" :active="request()->routeIs('lista.parceiros', 'parceiro.editar','parceiro.criar', 'parceiro.ver')" wire:navigate>
+            <x-responsive-nav-link :href="route('lista.parceiros')" :active="request()->routeIs('lista.parceiros', 'parceiro.alterar','parceiro.cadastrar', 'parceiro.ver')" wire:navigate>
                 {{ __('Parceiro') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('lista.adocoes')" :active="request()->routeIs('lista.adocoes', 'adocao.editar','adocao.criar', 'adocao.ver', 'lista.interesses', 'interesse-cadastrar')" wire:navigate>
+                {{ __('Adoções') }}
             </x-responsive-nav-link>
         </div>
 

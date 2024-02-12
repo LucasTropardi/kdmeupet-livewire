@@ -5,6 +5,7 @@ use App\Livewire\Logado\Usuario\Parceiros\Index as ParceirosIndex;
 use App\Livewire\Logado\Usuario\Parceiros\Cadastrar as ParceirosCadastrar;
 use App\Livewire\Logado\Usuario\Parceiros\Alterar as ParceirosAlterar;
 use App\Livewire\Logado\Usuario\Parceiros\Ver as ParceirosVer;
+use App\Livewire\Logado\Gerenciador\Parceiros\Index as ParceirosGerenciadorIndex;
 
 
 Route::get('lista-parceiros', ParceirosIndex::class)
@@ -22,4 +23,10 @@ Route::get('parceiro-alterar/{id}', ParceirosAlterar::class)
 Route::get('parceiro-ver/{id}', ParceirosVer::class)
     ->middleware(['auth', 'verified'])
     ->name('parceiro.ver');
+
+// Gerenciador
+Route::get('parceiros-gerenciador', ParceirosGerenciadorIndex::class)
+    ->middleware(['auth', 'verified'])
+    ->middleware('can:nivel')
+    ->name('parceiros.gerenciador');
 

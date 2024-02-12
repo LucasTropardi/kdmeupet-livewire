@@ -127,7 +127,6 @@ class AnimalController extends Controller
     public function alterar(Request $request, Animal $animal)
     {
         $request->validate([
-            'user_id'      => 'required|integer',
             'situacao_id'  => 'required|integer',
             'especie_id'   => 'required|integer',
             'raca_id'      => 'required|integer',

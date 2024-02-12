@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnimalController;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Logado\Usuario\Animais\Index as AnimaisIndex;
+use App\Livewire\Logado\Gerenciador\Animais\Index as AnimaisGerenciadorIndex;
 use App\Livewire\Logado\Usuario\Animais\Ver as AnimaisVer;
 use App\Models\Raca;
 use Illuminate\Http\Request;
@@ -30,6 +31,12 @@ Route::get('animal-editar/{animal}', [AnimalController::class, 'editar'])
 Route::put('animal-alterar/{animal}', [AnimalController::class, 'alterar'])
     ->middleware(['auth', 'verified'])
     ->name('animal.alterar');
+
+// Gerenciador
+Route::get('animais-gerenciador', AnimaisGerenciadorIndex::class)
+    ->middleware(['auth', 'verified'])
+    ->middleware('can:nivel')
+    ->name('animais.gerenciador');
 
 // Rotas auxiliares
 Route::get('/buscar-racas', [AnimalController::class, 'buscarRacas']);

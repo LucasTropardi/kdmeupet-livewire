@@ -33,3 +33,4 @@ require __DIR__.'/tamanhos.php';
 require __DIR__.'/racas.php';
 require __DIR__.'/animais.php';
 require __DIR__.'/parceiros.php';
+require __DIR__.'/adocoes.php';

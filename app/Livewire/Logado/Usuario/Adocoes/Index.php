@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Livewire\Logado\Usuario\Animais;
+namespace App\Livewire\Logado\Usuario\Adocoes;
 
-use App\Models\Animal;
+use App\Models\Adocao;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Session;
 
 class Index extends Component
 {
-    public $animalId;
+    public $adocaoId;
     public $open = false;
     public $id;
 
@@ -18,27 +18,27 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.logado.usuario.animais.index', [
-            'animais' => Animal::where('anFinalizado', '0')
+        return view('livewire.logado.usuario.adocoes.index', [
+            'adocoes' => Adocao::where('adFinalizado', 0)
                 ->where('user_id', Auth::user()->id)
-                ->orderBy('anData', 'asc')
+                ->orderBy('id', 'desc')
                 ->paginate(10),
         ]);
     }
 
-    public function setAnimalId($animalId)
+    public function setAdocaoId($adocaoId)
     {
-        $this->animalId = $animalId;
+        $this->adocaoId = $adocaoId;
     }
 
     public function finalizar()
     {
-        $animal = Animal::findOrFail($this->animalId);
-        if ($animal->update([
-            'anFinalizado' => 1,
+        $adocao = Adocao::findOrFail($this->adocaoId);
+        if ($adocao->update([
+            'adFinalizado' => 1,
         ])) {
             session()->flash('success', 'Publicação finalizada!');
-            return redirect(route('lista.animais'));
+            return redirect(route('lista.adocoes'));
         }
     }
 }

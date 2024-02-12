@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Livewire\Logado\Usuario\Animais;
+namespace App\Livewire\Logado\Usuario\Adocoes;
 
-use App\Models\Animal;
-use App\Models\Mensagem;
+use App\Models\Adocao;
+use App\Models\AdocaoMensagem;
+use App\Models\AdocaoInteresse;
 use App\Traits\Deletable;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -17,56 +18,57 @@ class Ver extends Component
     use WithPagination;
     use Deletable;
 
-    public $animalId;
+    public $adocaoId;
     public $open = false;
-    public $animal;
-    public $animal_id;
+    public $adocao;
+    public $adocao_id;
     public $user_id;
-    public $conteudoMensagem;
-    public $dataMensagem;
+    public $admConteudo;
+    public $admData;
     public $countMensagem;
     public $mensagemId;
+    public $countInteresses;
 
     #[Layout('layouts.app')]
 
     public function mount($id)
     {
-        $this->animal = Animal::findOrFail($id);
+        $this->adocao = Adocao::findOrFail($id);
         $this->user_id = Auth::user()->id;
-        $this->animal_id = $this->animal->id;
-        $this->dataMensagem = Carbon::now();
-        $this->countMensagem = Mensagem::count();
+        $this->adocao_id = $this->adocao->id;
+        $this->admData = Carbon::now();
+        $this->countMensagem = AdocaoMensagem::count();
+        $this->countInteresses = AdocaoInteresse::where('adiFinalizado', 0)->where('adocao_id', $this->adocao->id)->count();
     }
 
     public function render()
     {
-        return view('livewire.logado.usuario.animais.ver', [
-            'dataCadastrada' => Carbon::parse($this->animal->anData)->format('d/m/Y'),
-            'mensagens' => Mensagem::where('animal_id', $this->animal_id)->orderBy('dataMensagem', 'asc')->paginate(2),
+        return view('livewire.logado.usuario.adocoes.ver', [
+            'mensagens' => AdocaoMensagem::where('adocao_id', $this->adocao_id)->orderBy('created_at', 'desc')->paginate(2),
         ]);
     }
 
-    public function setAnimalId($animalId)
+    public function setAdocaoId($adocaoId)
     {
-        $this->animalId = $animalId;
+        $this->adocaoId = $adocaoId;
     }
 
     public function escreverMensagem()
     {
         $validated = $this->validate([
-            'conteudoMensagem' => ['required', 'string', 'max:600'],
+            'admConteudo' => ['required', 'string', 'max:600'],
         ]);
 
-        $mensagem = Mensagem::create([
+        $mensagem = AdocaoMensagem::create([
             'user_id' => $this->user_id,
-            'animal_id' => $this->animal_id,
-            'conteudoMensagem' => $validated['conteudoMensagem'],
-            'dataMensagem' => $this->dataMensagem,
+            'adocao_id' => $this->adocao_id,
+            'admConteudo' => $validated['admConteudo'],
+            'admData' => $this->admData,
         ]);
 
         if ($mensagem) {
             session()->flash('new_success', 'Mensagem enviada com sucesso!');
-            $this->redirect(route('animal.ver', $this->animal->id));
+            $this->redirect(route('adocao.ver', $this->adocao->id));
         }
     }
 
@@ -79,7 +81,7 @@ class Ver extends Component
     public function excluirMensagem()
     {
         if ($this->mensagemId) {
-            $mensagem = Mensagem::findOrFail($this->mensagemId);
+            $mensagem = AdocaoMensagem::findOrFail($this->mensagemId);
 
             if ($mensagem) {
                 $result = $this->deleteRegistro($mensagem);
@@ -93,7 +95,7 @@ class Ver extends Component
 
             // Feche o modal
             $this->open = false;
-            $this->redirect(route('animal.ver', $this->animal_id));
+            $this->redirect(route('adocao.ver', $this->adocao_id));
         }
     }
 }

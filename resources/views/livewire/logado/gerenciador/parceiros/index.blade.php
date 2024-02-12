@@ -21,7 +21,7 @@
                                 <tr class="hover:bg-gray-100 dark:hover:bg-gray-600">
                                     <th class="p-4">Nome</th>
                                     <th class="text-center">Situação</th>
-                                    <th class="sm:table-cell hidden">Telefone</th>
+                                    <th class="sm:table-cell hidden">Usuário</th>
                                     <th class="sm:table-cell hidden">E-mail</th>
                                     <th class="sm:table-cell hidden">Data</th>
                                     <th class="text-center">Ações</th>
@@ -47,7 +47,7 @@
                                                     </div>
                                                 @endif
                                             </td>
-                                            <td class="sm:table-cell hidden">{{ $parceria->parTelefone }}</td>
+                                            <td class="sm:table-cell hidden">{{ $parceria->user->nome . ' ' . $parceria->user->sobrenome }}</td>
                                             <td class="sm:table-cell hidden">{{ $parceria->parEmail }}</td>
                                             <td class="sm:table-cell hidden">{{ $parceria->parDataCadastro }}</td>
                                             <td class="text-center p-4 space-x-2 flex flex-col items-center justify-center sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0">

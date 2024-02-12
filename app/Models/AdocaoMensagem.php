@@ -9,7 +9,7 @@ class AdocaoMensagem extends Model
 {
     use HasFactory;
 
-    protected $filleble = [
+    protected $fillable = [
         'adocao_id',
         'user_id',
         'admData',

@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Livewire\Logado\Usuario\Animais;
+namespace App\Livewire\Logado\Gerenciador\Animais;
 
 use App\Models\Animal;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Illuminate\Support\Facades\Session;
@@ -18,9 +17,8 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.logado.usuario.animais.index', [
+        return view('livewire.logado.gerenciador.animais.index', [
             'animais' => Animal::where('anFinalizado', '0')
-                ->where('user_id', Auth::user()->id)
                 ->orderBy('anData', 'asc')
                 ->paginate(10),
         ]);
@@ -38,7 +36,7 @@ class Index extends Component
             'anFinalizado' => 1,
         ])) {
             session()->flash('success', 'Publicação finalizada!');
-            return redirect(route('lista.animais'));
+            return redirect(route('animais.gerenciador'));
         }
     }
 }

@@ -19,35 +19,35 @@
 
                                 <!-- Situação -->
                                 <div class="col-span-12 md:col-span-6">
-                                    <x-input-label class="mb-1" for="situacao_id" :value="__('Situação*')" />
+                                    <x-input-label class="mb-1" for="situacao_id" :value="__('Situação')" />
                                     <x-select name="situacao_id" :options="$situacoes" selected="{{ $animal->situacao_id }}" class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-lg shadow-sm" autofocus/>
                                     <x-input-error :messages="$errors->get('situacao_id')" class="mt-2" />
                                 </div>
 
                                 <!-- Espécie -->
                                 <div class="col-span-12 md:col-span-6">
-                                    <x-input-label class="mb-1" for="especie_id" :value="__('Espécie*')" />
+                                    <x-input-label class="mb-1" for="especie_id" :value="__('Espécie')" />
                                     <x-select name="especie_id" id="especie_id" :options="$especies" selected="{{ $animal->especie_id }}" class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-lg shadow-sm" />
                                     <x-input-error :messages="$errors->get('especie_id')" class="mt-2" />
                                 </div>
 
                                 <!-- Raça -->
                                 <div class="col-span-12 md:col-span-6">
-                                    <x-input-label class="mb-1" for="raca_id" :value="__('Raça*')" />
+                                    <x-input-label class="mb-1" for="raca_id" :value="__('Raça')" />
                                     <x-select name="raca_id" id="raca_id" :options="$racas" selected="{{ $animal->raca_id }}" class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-lg shadow-sm" />
                                     <x-input-error :messages="$errors->get('raca_id')" class="mt-2" />
                                 </div>
 
                                 <!-- Tamanhos -->
                                 <div class="col-span-12 md:col-span-6">
-                                    <x-input-label class="mb-1" for="tamanho_id" :value="__('Tamanho*')" />
+                                    <x-input-label class="mb-1" for="tamanho_id" :value="__('Tamanho')" />
                                     <x-select name="tamanho_id" id="tamanho_id" :options="$tamanhos" selected="{{ $animal->tamanho_id }}" class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-lg shadow-sm" />
                                     <x-input-error :messages="$errors->get('tamanho_id')" class="mt-2" />
                                 </div>
 
                             <!-- Cores -->
                             <div class="col-span-12 md:col-span-6">
-                                    <x-input-label class="mb-1" for="cor_id" :value="__('Cores*')" />
+                                    <x-input-label class="mb-1" for="cor_id" :value="__('Cor')" />
                                     <x-select name="cor_id" id="cor_id" :options="$cores" selected="{{ $animal->cor_id }}" class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-lg shadow-sm" />
                                     <x-input-error :messages="$errors->get('cor_id')" class="mt-2" />
                                 </div>
@@ -81,7 +81,7 @@
 
                                 <!-- Descrição -->
                                 <div class="col-span-12 md:col-span-12">
-                                    <x-input-label for="anDescricao" :value="__('Descrição*')" class="text-left" />
+                                    <x-input-label for="anDescricao" :value="__('Descrição')" class="text-left" />
                                     <x-textarea-input class="w-full block mt-1" rows="4" id="anDescricao" type="text" name="anDescricao" :value="old('anDescricao')" autocomplete="anDescricao" required>{{ $animal->anDescricao }}
                                     </x-textarea-input>
                                 </div>
@@ -98,7 +98,7 @@
 
                                 <!-- Latitude -->
                                 <div class="col-span-12 md:col-span-12">
-                                    <x-input-label for="" :value="__('Localização*')" class="mb-2 text-left" />
+                                    <x-input-label for="" :value="__('Localização')" class="mb-2 text-left" />
                                     <div id="map" class="overflow-hidden border-2 border-gray-300 shadow-lg sm:rounded-lg"></div>
                                     <input type="hidden" name="latitude" id="latitude">
                                     <input type="hidden" name="longitude" id="longitude">
